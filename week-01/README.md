@@ -20,11 +20,8 @@ The `isAnagram` function checks if two input strings (`str1` and `str2`) are ana
 
 Here's how the function works:
 
-1. It converts both input strings to lowercase using the `toLowerCase()` method. This ensures the comparison is case-insensitive.
-2. It splits each string into an array of characters using the `split('')` method.
-3. It sorts the arrays in lexicographical (alphabetical) order using the `sort()` method.
-4. It joins the sorted arrays back into strings using the `join('')` method.
-5. It compares the two sorted strings using the strict equality operator (`===`). If they are identical, it means the original strings are anagrams of each other, so the function returns `true`. Otherwise, it returns `false`.
+- Convert the input strings to lowercase, split them into arrays so that we can sort them, and then join them back into strings.
+- Compare the two strings and return `true` if they are anagrams of each other, and `false` if they are not.
 
 ## Testing
 
