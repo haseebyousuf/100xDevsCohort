@@ -131,6 +131,113 @@ function calculateTime(n) {
 }
 ```
 
+## Hard
+
+### Q1.Todo List
+
+Implement a class `Todo` having below methods:
+
+- add(todo): adds todo to list of todos
+- remove(indexOfTodo): remove todo from list of todos
+- update(index, updatedTodo): update todo at given index
+- getAll: returns all todos
+- get(indexOfTodo): returns todo at given index - clear: deletes all todos
+
+```js
+class Todo {
+  constructor() {
+    this.todos = [];
+  }
+  add(todo) {
+    this.todos.push(todo);
+  }
+  remove(index) {
+    if (index >= this.todos.length) return;
+    this.todos.splice(index, 1);
+  }
+  update(index, newTodo) {
+    if (index >= this.todos.length) return;
+    this.todos[index] = newTodo;
+  }
+  getAll() {
+    return this.todos;
+  }
+  get(index) {
+    return this.todos[index] !== undefined ? this.todos[index] : null;
+  }
+  clear() {
+    this.todos = [];
+  }
+}
+```
+
+### Q2.Calculator
+
+Implement a class `Calculator` having below methods:
+
+- initialise a result variable in the constructor and keep updating it after every arithmetic operation
+  - add: takes a number and adds it to the result
+  - subtract: takes a number and subtracts it from the result
+  - multiply: takes a number and multiply it to the result
+  - divide: takes a number and divide it to the result
+  - clear: makes the `result` variable to 0
+  - getResult: returns the value of `result` variable
+  - calculate: takes a string expression which can take multi-arithmetic operations and give its result:
+    - example input: `10 +   2 *    (   6 - (4 + 1) / 2) + 7`
+    - Points to Note:
+      1. the input can have multiple continuous spaces, you're supposed to avoid them and parse the expression correctly
+      2. the input can have invalid non-numerical characters like `5 + abc`, you're supposed to throw error for such inputs
+
+```js
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+  add(num) {
+    this.result += num;
+  }
+  subtract(num) {
+    this.result -= num;
+  }
+  multiply(num) {
+    this.result *= num;
+  }
+  divide(num) {
+    if (num === 0) {
+      throw new Error(`Can't divide by zero.`);
+    }
+    this.result /= num;
+  }
+  clear() {
+    this.result = 0;
+  }
+
+  calculate(expression) {
+    //remove spaces
+    const cleanedExpression = expression.replace(/\s+/g, '');
+    //check if expression has non-numerical characters
+    const validExpression = /^[0-9+\-*/().]+$/.test(cleanedExpression);
+
+    if (!validExpression) {
+      throw new Error('Expression is not valid.');
+    }
+
+    try {
+      this.result = eval(validExpression);
+    } catch (err) {
+      throw new Error('Expression is not valid.');
+    }
+    if (this.result === Infinity) {
+      throw new Error(`You can't divide a number by zero`);
+    }
+    return this.result;
+  }
+  getResult() {
+    return this.result;
+  }
+}
+```
+
 ## Testing
 
 1. Follow the comment above each problem to run test for that problem
