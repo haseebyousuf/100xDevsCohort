@@ -49,14 +49,12 @@ function calculateTotalSpentByCategory(transactions) {
   }, []);
 ```
 
-The `isAnagram` function checks if two input strings (`str1` and `str2`) are anagrams of each other. An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.
-
-Here's how the function works:
-
-- Convert the input strings to lowercase, split them into arrays so that we can sort them, and then join them back into strings.
-- Compare the two strings and return `true` if they are anagrams of each other, and `false` if they are not.
-
 ### Q3.Find Largest Element
+
+Write a function `findLargestElement` that takes an array of numbers and returns the largest element.
+  Example:
+  - Input: [3, 7, 2, 9, 1]
+  - Output: 9
 
 ```js
 function findLargestElement(numbers) {
