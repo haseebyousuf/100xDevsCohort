@@ -6,7 +6,25 @@
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const result = transactions.reduce((acc, transaction) => {
+    const { category, price } = transaction;
+
+    // Check if the category already exists in the accumulator
+    const existingCategory = acc.find((item) => item.category === category);
+
+    if (existingCategory) {
+      // If the category exists, update the total spent
+      existingCategory.totalSpent += price;
+    } else {
+      // If the category doesn't exist, add a new entry
+      acc.push({ category, totalSpent: price });
+      console.log(acc);
+    }
+
+    return acc;
+  }, []);
+
+  return result;
 }
 
 module.exports = calculateTotalSpentByCategory;
