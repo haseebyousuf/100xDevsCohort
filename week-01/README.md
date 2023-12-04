@@ -2,7 +2,7 @@
 
 ## Easy
 
-### Q1.Anagrams
+### [Q1.Anagrams](easy/anagrams.js)
 
 Write a function `isAnagram` which takes 2 parameters and returns true/false if those are anagrams or not.
 What's Anagram?
@@ -21,7 +21,7 @@ Here's how the function works:
 - Convert the input strings to lowercase, split them into arrays so that we can sort them, and then join them back into strings.
 - Compare the two strings and return `true` if they are anagrams of each other, and `false` if they are not.
 
-### Q2. Expenditure Analysis
+### [Q2. Expenditure Analysis](easy/expenditure-analysis.js)
 
 Implement a function `calculateTotalSpentByCategory` which takes a list of transactions as parameter
 and return a list of objects where each object is unique category-wise and has total price spent as its value.
@@ -47,9 +47,10 @@ function calculateTotalSpentByCategory(transactions) {
 
     return acc;
   }, []);
+}
 ```
 
-### Q3.Find Largest Element
+### [Q3.Find Largest Element](easy/findLargestElement.js)
 
 Write a function `findLargestElement` that takes an array of numbers and returns the largest element.
   Example:
@@ -71,7 +72,7 @@ function findLargestElement(numbers) {
 
 ## Medium
 
-### Q1.Count Vowels
+### [Q1.Count Vowels](medium/countVowels.js)
 
 Implement a function `countVowels` that takes a string as an argument and returns the number of vowels in the string.
 Note: Consider both uppercase and lowercase vowels ('a', 'e', 'i', 'o', 'u').
@@ -93,7 +94,7 @@ function countVowels(str) {
 }
 ```
 
-### Q2. Palindrome
+### [Q2. Palindrome](medium/palindrome.js)
 
 Implement a function `isPalindrome` which takes a string as argument and returns true/false as its result.
 Note: the input string is case-insensitive which means 'Nan' is a palindrom as 'N' and 'n' are considered case-insensitive.
@@ -110,7 +111,7 @@ function isPalindrome(str) {
 }
 ```
 
-### Q2. Times
+### [Q3. Times](medium/times.js)
 
 Write a function that calculates the time (in seconds) it takes for the JS code to calculate sum from 1 to n, given n as the input.
 Try running it for
@@ -133,7 +134,7 @@ function calculateTime(n) {
 
 ## Hard
 
-### Q1.Todo List
+### [Q1.Todo List](hard/todo-list.js)
 
 Implement a class `Todo` having below methods:
 
@@ -171,7 +172,7 @@ class Todo {
 }
 ```
 
-### Q2.Calculator
+### [Q2.Calculator](hard/calculator.js)
 
 Implement a class `Calculator` having below methods:
 
