@@ -71,6 +71,68 @@ function findLargestElement(numbers) {
 }
 ```
 
+## Medium
+
+### Q1.Count Vowels
+
+Implement a function `countVowels` that takes a string as an argument and returns the number of vowels in the string.
+Note: Consider both uppercase and lowercase vowels ('a', 'e', 'i', 'o', 'u').
+
+```js
+function countVowels(str) {
+  const lowerStr = str.toLowerCase();
+
+  const vowels = 'aeiou';
+
+  const vowelCount = lowerStr.split('').reduce((count, char) => {
+    if (vowels.includes(char)) {
+      count += 1;
+    }
+    return count;
+  }, 0);
+
+  return vowelCount;
+}
+```
+
+### Q2. Palindrome
+
+Implement a function `isPalindrome` which takes a string as argument and returns true/false as its result.
+Note: the input string is case-insensitive which means 'Nan' is a palindrom as 'N' and 'n' are considered case-insensitive.
+
+```js
+function isPalindrome(str) {
+  const lowerStr = str.toLowerCase();
+  //remove spaces and punctuations
+  const cleanStr = lowerStr.replace(/[^a-z0-9]/g, '');
+  //reverse the cleaned string
+  const reversedStr = cleanStr.split('').reverse().join('');
+  //compare the cleaned string and reversed string
+  return cleanStr === reversedStr;
+}
+```
+
+### Q2. Times
+
+Write a function that calculates the time (in seconds) it takes for the JS code to calculate sum from 1 to n, given n as the input.
+Try running it for
+
+1. Sum from 1-100
+2. Sum from 1-100000
+3. Sum from 1-1000000000
+
+```js
+function calculateTime(n) {
+  let startTime = Date.now();
+  let sum = 0;
+  for (let i = 1; i <= n; i++) {
+    sum = sum + i;
+  }
+  const endTime = Date.now();
+  console.log((endTime - startTime) / 1000);
+}
+```
+
 ## Testing
 
 1. Follow the comment above each problem to run test for that problem
