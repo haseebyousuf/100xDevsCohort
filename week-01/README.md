@@ -274,7 +274,7 @@ function terminalClock() {
 setInterval(terminalClock, 1000);
 ```
 
-### [Q3. Time To Execute Callback In SetTimeout](class-assignments/timeToExecuteCallbackInSetTimeout.js.js)
+### [Q3. Time To Execute Callback In SetTimeout](class-assignments/timeToExecuteCallbackInSetTimeout.js)
 
 Calculate the time it takes between a setTimeout call and the inner function actually running
 
