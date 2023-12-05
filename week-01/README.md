@@ -2,7 +2,7 @@
 
 ## Easy
 
-### [Q1.Anagrams](easy/anagram.js)
+### [Q1.Anagrams](easy/anagrams.js)
 
 Write a function `isAnagram` which takes 2 parameters and returns true/false if those are anagrams or not.
 What's Anagram?
@@ -237,6 +237,58 @@ class Calculator {
     return this.result;
   }
 }
+```
+
+## Class Assignments
+
+### [Q1.Counter](class-assignments/counter.js)
+
+Create a counter in Javascript (counts down from 30 to 0)
+
+```js
+function counter(n) {
+  for (let i = n; i >= 0; i--) {
+    console.log(i);
+  }
+}
+counter(30);
+```
+
+### [Q2.Terminal Clock](class-assignments/terminalClock.js)
+
+create a terminal clock (HH:MM:SS)
+
+```js
+function terminalClock() {
+  const date = new Date();
+  const hours = date.getHours();
+  const ampm = hours >= 12 ? 'PM' : 'AM';
+
+  const displayHours = hours % 12 || 12;
+
+  console.log(
+    ` ${displayHours}:${date.getMinutes()}:${date.getSeconds()} ${ampm}`
+  );
+}
+
+setInterval(terminalClock, 1000);
+```
+
+### [Q3. Time To Execute Callback In SetTimeout](class-assignments/timeToExecuteCallbackInSetTimeout.js.js)
+
+Calculate the time it takes between a setTimeout call and the inner function actually running
+
+```js
+const startTime = Date.now();
+const DELAY = 2000;
+setTimeout(() => {
+  const endTime = Date.now();
+  console.log(
+    `Time taken to actually run inner function inside the setTimeout with a delay of ${DELAY} = ${
+      (endTime - startTime) / 1000
+    }`
+  );
+}, DELAY);
 ```
 
 ## Testing
