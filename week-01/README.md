@@ -2,7 +2,7 @@
 
 ## Easy
 
-### [Q1.Anagrams](easy/anagrams.js)
+### [Q1.Anagram](easy/anagram.js)
 
 Write a function `isAnagram` which takes 2 parameters and returns true/false if those are anagrams or not.
 What's Anagram?
