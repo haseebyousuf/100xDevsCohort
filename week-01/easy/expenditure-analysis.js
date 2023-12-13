@@ -1,30 +1,33 @@
 /*
   Implement a function `calculateTotalSpentByCategory` which takes a list of transactions as parameter
   and return a list of objects where each object is unique category-wise and has total price spent as its value.
-  Transaction - an object like { itemName, category, price, timestamp }.
-  Output - [{ category1 - total_amount_spent_on_category1 }, { category2 - total_amount_spent_on_category2 }]
+  transactions is an array where each
+  Transaction - an object like 
+        {
+		id: 1,
+		timestamp: 1656076800000,
+		price: 10,
+		category: 'Food',
+		itemName: 'Pizza',
+	}
+  Output - [{ category: 'Food', totalSpent: 10 }] // Can have multiple categories, only one example is mentioned here
 */
 
 function calculateTotalSpentByCategory(transactions) {
-  const result = transactions.reduce((acc, transaction) => {
-    const { category, price } = transaction;
 
-    // Check if the category already exists in the accumulator
-    const existingCategory = acc.find((item) => item.category === category);
-
-    if (existingCategory) {
-      // If the category exists, update the total spent
-      existingCategory.totalSpent += price;
+  const categories = {}; // Hash table for storing categories and totals
+  
+  for (const transaction of transactions) {
+    const category = transaction.category;
+    if (categories.hasOwnProperty(category)) {
+      categories[category].totalSpent += transaction.price;
     } else {
-      // If the category doesn't exist, add a new entry
-      acc.push({ category, totalSpent: price });
-      console.log(acc);
+      categories[category] = { category, totalSpent: transaction.price };
     }
+  }
+  
+  return Object.values(categories);
 
-    return acc;
-  }, []);
-
-  return result;
 }
 
 module.exports = calculateTotalSpentByCategory;
