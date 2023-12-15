@@ -1,1 +1,8 @@
-[]
+[
+  {
+    "id": 95758,
+    "title": "Todo 1",
+    "completed": "false",
+    "description": "This is first Todo"
+  }
+]
