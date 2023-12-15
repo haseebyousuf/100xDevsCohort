@@ -1,4 +1,4 @@
-# Week 2 Assignments
+# Async JS Assignments
 
 ## Easy
 
