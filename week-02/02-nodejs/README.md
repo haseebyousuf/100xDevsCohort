@@ -1,6 +1,6 @@
 # Node.js Assignments
 
-## [In Memory TODO](/todoServer.js)
+## [In Memory TODO](todoServer.js)
 
 create an express HTTP server in Node.js which will handle the logic of a todo list app. Don't use any database, just store all the data in an array to store the todo list data (in-memory)
 
@@ -90,7 +90,7 @@ app.all('*', (req, res) => {
 });
 ```
 
-## [Todo in File](/todoFileServer.js)
+## [Todo in File](todoFileServer.js)
 
 You need to create an express HTTP server in Node.js which will handle the logic of a todo list app.
 Hard todo: Try to save responses in files, so that even if u exit the app and run it again, the data remains (similar to databases)
