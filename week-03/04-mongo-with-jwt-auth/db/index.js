@@ -1,9 +1,7 @@
 const mongoose = require('mongoose');
 
 // Connect to MongoDB
-mongoose.connect(
-  'mongodb://haseebyousuff:qNJHlL8JL8q91EOI@ac-gplxwut-shard-00-00.kfkjhcl.mongodb.net:27017,ac-gplxwut-shard-00-01.kfkjhcl.mongodb.net:27017,ac-gplxwut-shard-00-02.kfkjhcl.mongodb.net:27017/?replicaSet=atlas-frnrro-shard-0&ssl=true&authSource=admin'
-);
+mongoose.connect(process.env.MONGO_URL);
 
 // Define schemas
 const AdminSchema = new mongoose.Schema({
