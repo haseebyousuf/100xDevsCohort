@@ -10,3 +10,10 @@ Inside this repository, you will find the solved assignments. Each week has its 
 
 1. [Async JS](week-02/01-async-js/README.md)
 2. [HTTP servers](week-02/02-nodejs/README.md)
+
+## Week 03
+
+1. [Middlewares](week-03/01-middlewares)
+2. [JWT](week-03/02-jwt)
+3. [MongoDB](week-03/03-mongo)
+4. [JWT + MongoDB](week-03/04-mongo-with-jwt-auth)
