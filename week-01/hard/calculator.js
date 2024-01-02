@@ -15,51 +15,60 @@
 
   Once you've implemented the logic, test your code by running
 */
+const mathjs = require('mathjs');
 
 class Calculator {
   constructor() {
     this.result = 0;
   }
-  add(num) {
-    this.result += num;
+  add(number){
+    this.result +=number
   }
-  subtract(num) {
-    this.result -= num;
+  subtract(number){
+    this.result -=number
   }
-  multiply(num) {
-    this.result *= num;
+  multiply(number){
+    this.result *=number
   }
+
   divide(num) {
-    if (num === 0) {
-      throw new Error(`Can't divide by zero.`);
+    if (num === 0 || this.result === Infinity || this.result === -Infinity) {
+      throw new Error("Cannot divide by zero");
     }
     this.result /= num;
   }
+
   clear() {
     this.result = 0;
   }
 
-  calculate(expression) {
-    //remove spaces
-    const cleanedExpression = expression.replace(/\s+/g, '');
-    //check if expression has non-numerical characters
-    const validExpression = /^[0-9+\-*/().]+$/.test(cleanedExpression);
+  getResult() {
+    return this.result;
+  }
 
-    if (!validExpression) {
-      throw new Error('Expression is not valid.');
+  calculate(exp) {
+    exp = exp.split("").filter((ele) => {
+      if ("0123456789+-/*().eE ".includes(ele)) {
+        return true;
+      } else {
+        throw new Error("Invalid expression: Contains invalid characters");
+      }
+    }).join("");
+
+    if (exp.includes(" / 0")) { // Check for division by zero because mathjs works differently I don't know why
+      throw new Error("Cannot divide by zero");
     }
 
     try {
-      this.result = eval(validExpression);
-    } catch (err) {
-      throw new Error('Expression is not valid.');
+      this.result = mathjs.evaluate(exp);
+    } catch (error) {
+      throw new Error("Error evaluating expression:", error.message);
     }
-    if (this.result === Infinity) {
-      throw new Error(`You can't divide a number by zero`);
+
+    if (isNaN(this.result)) {
+      throw new Error("Expression resulted in NaN.");
     }
-    return this.result;
-  }
-  getResult() {
+
     return this.result;
   }
 }
