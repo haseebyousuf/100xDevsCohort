@@ -4,7 +4,9 @@
 
 Inside this repository, you will find the solved assignments. Each week has its own folder, and each folder contains the assignments for that week.
 
-## [Week 01: Orientation and JS](week-01/README.md)
+## Week 01
+
+1 [Orientation and JS](week-01/README.md)
 
 ## Week 02
 
