@@ -17,3 +17,8 @@ Inside this repository, you will find the solved assignments. Each week has its 
 2. [JWT](week-03/02-jwt)
 3. [MongoDB](week-03/03-mongo)
 4. [JWT + MongoDB](week-03/04-mongo-with-jwt-auth)
+
+## Week 04
+
+1. [Todo Using Vanilla Js](week-04/index.html)
+2. [Todo App Using React](week-04/react-basics)
