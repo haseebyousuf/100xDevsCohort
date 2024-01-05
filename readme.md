@@ -6,7 +6,7 @@ Inside this repository, you will find the solved assignments. Each week has its 
 
 ## Week 01
 
-1 [Orientation and JS](week-01/README.md)
+1. [Orientation and JS](week-01/README.md)
 
 ## Week 02
 
