@@ -24,3 +24,7 @@ Inside this repository, you will find the solved assignments. Each week has its 
 
 1. [Todo Using Vanilla Js](week-04/index.html)
 2. [Todo App Using React](week-04/react-basics)
+
+## Week 05
+
+1. [Business Card](week-05/business-card/src/components/BusinessCard.jsx)
