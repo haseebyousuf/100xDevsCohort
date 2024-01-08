@@ -28,3 +28,4 @@ Inside this repository, you will find the solved assignments. Each week has its 
 ## Week 05
 
 1. [Business Card](week-05/business-card/src/components/BusinessCard.jsx)
+2. [PowerList - Fullstack Todo App](week-05/todoApp)
