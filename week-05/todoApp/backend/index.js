@@ -32,8 +32,21 @@ app.post('/task', async (req, res) => {
 
 app.get('/tasks', async (req, res) => {
   try {
-    const tasks = await Task.find({});
+    const tasks = await Task.find({}).sort({ completed: 1, createdAt: -1 });
     res.status(200).json({ tasks });
+  } catch (error) {
+    throw new Error(error);
+  }
+});
+app.delete('/task', async (req, res) => {
+  try {
+    const { id } = req.body;
+    const task = await Task.findByIdAndDelete({ _id: id });
+    if (task) {
+      res.status(200).json({ msg: 'Task deleted', success: true });
+    } else {
+      res.status(404).json({ msg: 'Task not found', success: false });
+    }
   } catch (error) {
     throw new Error(error);
   }
@@ -47,9 +60,13 @@ app.put('/completed', async (req, res) => {
     return;
   }
 
-  const updatedTask = Task.update({ _id: req.body.id }, { completed: true });
+  const updatedTask = await Task.findByIdAndUpdate(
+    { _id: req.body.id },
+    { completed: req.body.completed },
+    { new: true }
+  );
   if (updatedTask) {
-    res.status(200).json({ msg: 'Todo marked as Completed' });
+    res.status(200).json({ msg: 'Todo marked as Completed', success: true });
   }
 });
 
