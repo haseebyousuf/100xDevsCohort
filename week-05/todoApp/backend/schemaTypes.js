@@ -7,4 +7,5 @@ export const createTodoSchema = zod.object({
 
 export const updateTodoSchema = zod.object({
   id: zod.string(),
+  completed: zod.boolean(),
 });
