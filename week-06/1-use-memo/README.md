@@ -1,6 +1,6 @@
 # USE MEMO ASSIGNMENT SOLUTIONS
 
-## Assignment 1
+## [Assignment 1](./src/components/Assignment1.jsx)
 
 ```jsx
 // In this assignment, your task is to create a component that performs an expensive calculation (finding the factorial) based on a user input.
@@ -30,7 +30,7 @@ export function Assignment1() {
 }
 ```
 
-## Assignment 2
+## [Assignment 2](./src/components/Assignment2.jsx)
 
 ```jsx
 // In this assignment, you will create a component that renders a large list of sentences and includes an input field for filtering these items.
@@ -52,11 +52,12 @@ for (let i = 0; i < TOTAL_LINES; i++) {
 }
 
 export function Assignment2() {
+  const [sentences, setSentences] = useState(ALL_WORDS);
   const [filter, setFilter] = useState('');
 
   const filteredSentences = useMemo(() => {
-    return ALL_WORDS.filter((x) => x.includes(filter));
-  }, [filter]);
+    return sentences.filter((x) => x.includes(filter));
+  }, [filter, sentences]);
 
   return (
     <div>
@@ -74,7 +75,7 @@ export function Assignment2() {
 }
 ```
 
-## Assignment 3
+## [Assignment 3](./src/components/Assignment3.jsx)
 
 ```jsx
 // You have been given a list of items you shopped from the grocery store
