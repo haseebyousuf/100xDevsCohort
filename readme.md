@@ -29,3 +29,9 @@ Inside this repository, you will find the solved assignments. Each week has its 
 
 1. [Business Card](week-05/business-card/src/components/BusinessCard.jsx)
 2. [PowerList - Fullstack Todo App](week-05/todoApp)
+
+## Week 06
+
+1. [useMemo Assignment](week-06/1-use-memo/README.md)
+2. [useCallback Assignment](week-06/2-use-callback/README.md)
+3. [useRef Assignment](week-06/3-use-ref/README.md)
