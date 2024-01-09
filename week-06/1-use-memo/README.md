@@ -1,4 +1,4 @@
-# USE MEMO ASSIGNMENT SOLUTIONS
+# useMemo() ASSIGNMENT SOLUTIONS
 
 ## [Assignment 1](./src/components/Assignment1.jsx)
 
