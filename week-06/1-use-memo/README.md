@@ -7,15 +7,16 @@
 // Use useMemo to ensure that the calculation is only recomputed when the input changes, not on every render.
 import { useMemo, useState } from 'react';
 
-function factorial(num) {
-  if (num < 0) return -1;
-  else if (num == 0) return 1;
-  else return num * factorial(num - 1);
-}
 export function Assignment1() {
   const [input, setInput] = useState(0);
   // Your solution starts here
-  const expensiveValue = useMemo(() => factorial(input), [input]);
+  const expensiveValue = useMemo(() => {
+    let value = 1;
+    for (let i = 1; i <= input; i++) {
+      value = value * i;
+    }
+    return value;
+  }, [input]);
   // Your solution ends here
   return (
     <div>
