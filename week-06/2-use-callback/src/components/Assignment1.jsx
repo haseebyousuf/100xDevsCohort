@@ -8,11 +8,11 @@ export function Assignment1() {
   // Your code starts here
 
   const handleIncrement = useCallback(() => {
-    setCount(count + 1);
-  }, [count]);
+    setCount((count) => count + 1);
+  }, []);
 
   const handleDecrement = useCallback(() => {
-    setCount(count - 1);
+    setCount((count) => count - 1);
   }, [count]);
 
   // Your code ends here
@@ -28,9 +28,9 @@ export function Assignment1() {
   );
 }
 
-const CounterButtons = ({ onIncrement, onDecrement }) => (
+const CounterButtons = memo(({ onIncrement, onDecrement }) => (
   <div>
     <button onClick={onIncrement}>Increment</button>
     <button onClick={onDecrement}>Decrement</button>
   </div>
-);
+));
