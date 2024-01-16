@@ -1,5 +1,7 @@
 # 🚀 100xDevs MERN COHORT 2.0🚀
 
+![100xDevsCohort](https://socialify.git.ci/haseebyousuf/100xDevsCohort/image?font=Jost&forks=1&language=1&name=1&owner=1&pattern=Floating%20Cogs&stargazers=1&theme=Auto)
+
 ## This repository contains the code and solutions for the "MERN Cohort 2.0 Course By 100xDevs (Harkirat)" assignments
 
 Inside this repository, you will find the solved assignments. Each week has its own folder, and each folder contains the assignments for that week.
