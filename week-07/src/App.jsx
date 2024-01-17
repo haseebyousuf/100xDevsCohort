@@ -1,6 +1,6 @@
-// import ProfileCard from './assignments/assignment1/ProfileCard';
-
+import ProfileCard from './assignments/Assignment1/ProfileCard';
 import BackgroundChanger from './assignments/assignment2/BackgroundChanger';
+import ParaGenerator from './assignments/assignment4/ParaGenerator';
 
 function App() {
   return (
@@ -8,7 +8,9 @@ function App() {
       {/*  Assignment 1 */}
       {/* <ProfileCard /> */}
       {/*  Assignment 2 */}
-      <BackgroundChanger />
+      {/* <BackgroundChanger /> */}
+      {/*  Assignment 4 */}
+      <ParaGenerator />
     </>
   );
 }
