@@ -1,4 +1,4 @@
-import ProfileCard from './assignments/ProfileCard';
+import ProfileCard from './assignments/Assignment1/ProfileCard';
 
 function App() {
   return (

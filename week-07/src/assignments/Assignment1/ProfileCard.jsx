@@ -1,4 +1,4 @@
-import avatar from '../assets/avatar.jpg';
+import avatar from '../../assets/avatar.jpg';
 
 const ProfileCard = () => {
   return (
