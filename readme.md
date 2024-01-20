@@ -37,3 +37,7 @@ Inside this repository, you will find the solved assignments. Each week has its 
 1. [useMemo Assignment](week-06/1-use-memo/README.md)
 2. [useCallback Assignment](week-06/2-use-callback/README.md)
 3. [useRef Assignment](week-06/3-use-ref/README.md)
+
+## Week 07
+
+1. [All Assignments](week-07/README.md)
