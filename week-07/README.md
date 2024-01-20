@@ -1,6 +1,6 @@
 # Week 07 Assignments
 
-## [Assignment 1 - Profile Card](./src/assignments/assignment1/ProfileCard.jsx)
+## [Assignment 1 - Profile Card](./src/assignments/Assignment1/ProfileCard.jsx)
 
 ![Profile Card](./src/assets/demos/profilecard.png)
 
