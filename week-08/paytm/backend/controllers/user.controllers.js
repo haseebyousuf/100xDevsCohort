@@ -1,5 +1,9 @@
 import { User } from '../db.js';
-import { signUpSchema, signinSchema } from '../utils/zodSchemas.js';
+import {
+  signUpSchema,
+  signinSchema,
+  updateUserSchema,
+} from '../utils/zodSchemas.js';
 import jwt from 'jsonwebtoken';
 
 export const signup = async (req, res) => {
@@ -26,7 +30,7 @@ export const signup = async (req, res) => {
     const token = jwt.sign({ userId }, process.env.JWT_SECRET);
     res.status(200).json({ message: 'User created Successfully', token });
   } catch (error) {
-    console.log(error);
+    return res.status(401).json({ message: 'Server Error' });
   }
 };
 
@@ -49,6 +53,39 @@ export const signin = async (req, res) => {
       return res.status(404).json({ message: 'Invalid Credentials' });
     }
   } catch (error) {
-    throw new Error(error);
+    return res.status(401).json({ message: 'Server Error' });
   }
 };
+
+export const updateUser = async (req, res) => {
+  try {
+    const { firstName, lastName, password } = req.body;
+    const { success } = updateUserSchema.safeParse({
+      firstName,
+      lastName,
+      password,
+    });
+    if (!success) {
+      return res.status(411).json({ message: 'Invalid Inputs' });
+    }
+    const updateFields = { firstName, lastName };
+    if (password) {
+      console.log('password');
+      const user = await User.findOne({ _id: req.userId });
+      const hashedPassword = await user.createHash(password);
+      updateFields.password = hashedPassword;
+    }
+    await User.findOneAndUpdate({ _id: req.userId }, updateFields);
+    res.status(200).json({ message: 'User updated Successfully' });
+  } catch (error) {
+    console.log(error);
+    return res.status(401).json({ message: 'Server Errorrrrr' });
+  }
+};
+
+// export const updateUser = async (req, res) => {
+//   try {
+//   } catch (error) {
+//     return res.status(401).json({ message: 'Server Error' });
+//   }
+// };
