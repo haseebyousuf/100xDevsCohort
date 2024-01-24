@@ -11,3 +11,9 @@ export const signinSchema = zod.object({
   username: zod.string().email(),
   password: zod.string(),
 });
+
+export const updateUserSchema = zod.object({
+  firstName: zod.string().optional(),
+  lastName: zod.string().optional(),
+  password: zod.string().optional(),
+});
