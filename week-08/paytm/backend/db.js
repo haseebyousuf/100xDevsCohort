@@ -1,6 +1,18 @@
 import mongoose from 'mongoose';
 import bcrypt from 'bcrypt';
 
+const AccountSchema = mongoose.Schema({
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  balance: {
+    type: Number,
+    required: true,
+  },
+});
+
 const UserSchema = mongoose.Schema({
   username: {
     type: String,
@@ -38,4 +50,6 @@ UserSchema.methods.createHash = async (password) => {
 UserSchema.methods.validatePassword = async function (incomingPassword) {
   return await bcrypt.compare(incomingPassword, this.password);
 };
+
+export const Account = mongoose.model('Account', AccountSchema);
 export const User = mongoose.model('User', UserSchema);
