@@ -1,4 +1,4 @@
-import { User } from '../db.js';
+import { Account, User } from '../db.js';
 import {
   signUpSchema,
   signinSchema,
@@ -27,6 +27,10 @@ export const signup = async (req, res) => {
     await user.save();
 
     const userId = user._id;
+    await Account.create({
+      userId,
+      balance: 1 + Math.random() * 1000,
+    });
     const token = jwt.sign({ userId }, process.env.JWT_SECRET);
     res.status(200).json({ message: 'User created Successfully', token });
   } catch (error) {
@@ -83,9 +87,34 @@ export const updateUser = async (req, res) => {
   }
 };
 
-// export const updateUser = async (req, res) => {
-//   try {
-//   } catch (error) {
-//     return res.status(401).json({ message: 'Server Error' });
-//   }
-// };
+export const filterUsers = async (req, res) => {
+  try {
+    const filter = req.query.filter || '';
+
+    const users = await User.find({
+      $or: [
+        {
+          firstName: {
+            $regex: filter,
+          },
+        },
+        {
+          lastName: {
+            $regex: filter,
+          },
+        },
+      ],
+    });
+
+    res.json({
+      user: users.map((user) => ({
+        username: user.username,
+        firstName: user.firstName,
+        lastName: user.lastName,
+        _id: user._id,
+      })),
+    });
+  } catch (error) {
+    return res.status(401).json({ message: 'Server Error' });
+  }
+};
