@@ -55,9 +55,10 @@ export const transfer = async (req, res) => {
 
     // Commit the transaction
     await session.commitTransaction();
-
-    res.json({
+    const updatedAccount = await Account.findOne({ userId: req.userId });
+    return res.json({
       message: 'Transfer successful',
+      balance: updatedAccount.balance,
     });
   } catch (error) {
     return res.status(401).json({ message: 'Server Error' });
