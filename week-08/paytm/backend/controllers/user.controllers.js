@@ -27,12 +27,19 @@ export const signup = async (req, res) => {
     await user.save();
 
     const userId = user._id;
-    await Account.create({
+    const account = await Account.create({
       userId,
-      balance: 1 + Math.random() * 1000,
+      balance: 1 + Math.random() * 10000,
     });
     const token = jwt.sign({ userId }, process.env.JWT_SECRET);
-    res.status(200).json({ message: 'User created Successfully', token });
+    const userResponse = user.toObject();
+    delete userResponse.password;
+    userResponse.balance = account.balance;
+    res.status(200).json({
+      message: 'User created Successfully',
+      token,
+      user: userResponse,
+    });
   } catch (error) {
     return res.status(401).json({ message: 'Server Error' });
   }
@@ -52,7 +59,14 @@ export const signin = async (req, res) => {
     if (await user.validatePassword(password)) {
       const userId = user._id;
       const token = jwt.sign({ userId }, process.env.JWT_SECRET);
-      res.status(200).json({ token });
+      const account = await Account.findOne({ userId });
+
+      const userResponse = user.toObject();
+      delete userResponse.password;
+
+      userResponse.balance = account.balance;
+
+      return res.status(200).json({ token, user: userResponse });
     } else {
       return res.status(404).json({ message: 'Invalid Credentials' });
     }
@@ -74,7 +88,6 @@ export const updateUser = async (req, res) => {
     }
     const updateFields = { firstName, lastName };
     if (password) {
-      console.log('password');
       const user = await User.findOne({ _id: req.userId });
       const hashedPassword = await user.createHash(password);
       updateFields.password = hashedPassword;
@@ -82,7 +95,6 @@ export const updateUser = async (req, res) => {
     await User.findOneAndUpdate({ _id: req.userId }, updateFields);
     res.status(200).json({ message: 'User updated Successfully' });
   } catch (error) {
-    console.log(error);
     return res.status(401).json({ message: 'Server Errorrrrr' });
   }
 };
@@ -90,17 +102,17 @@ export const updateUser = async (req, res) => {
 export const filterUsers = async (req, res) => {
   try {
     const filter = req.query.filter || '';
-
+    const regexFilter = new RegExp(filter, 'i');
     const users = await User.find({
       $or: [
         {
           firstName: {
-            $regex: filter,
+            $regex: regexFilter,
           },
         },
         {
           lastName: {
-            $regex: filter,
+            $regex: regexFilter,
           },
         },
       ],
