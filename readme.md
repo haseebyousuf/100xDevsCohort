@@ -41,3 +41,7 @@ Inside this repository, you will find the solved assignments. Each week has its 
 ## Week 07
 
 1. [All Assignments](week-07/README.md)
+
+## Week 08
+
+1. [Basic PayTM App](week-08/paytm/README.md)
